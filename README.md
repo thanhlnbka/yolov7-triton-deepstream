@@ -29,6 +29,7 @@ Run cmd:
 Run demo:
 * cd /opt/nvidia/deepstream/deepstream-6.1/sources/yolov7-triton-deepstream
 * python3 demo.py -i rtsp://localhost:128/gst -g nvinferserver -c configs/config_infer_triton_yolov7.txt
+![Screenshot from 2022-10-03 14-31-10](https://user-images.githubusercontent.com/56015771/193529486-2609b621-12d8-4390-8092-a42f76bd3cd5.png)
 
 
 ## Acknowledgements
