@@ -703,7 +703,6 @@ bool NvDsInferParseCustomEfficientNMS (std::vector<NvDsInferLayerInfo> const &ou
                   << outputLayersInfo.size() << std::endl;
         return false;
     }
-    const char* log_enable = std::getenv("ENABLE_DEBUG");
 
     int* p_keep_count = (int *) outputLayersInfo[0].buffer;
 
@@ -740,14 +739,7 @@ bool NvDsInferParseCustomEfficientNMS (std::vector<NvDsInferLayerInfo> const &ou
             object.width=(p_bboxes[4*i+2] - object.left);
             object.height= (p_bboxes[4*i+3] - object.top);
 
-            if(log_enable != NULL && std::stoi(log_enable)) {
-                std::cout << "label/conf/ x/y w/h -- "
-                << p_classes[i] << " "
-                << p_scores[i] << " "
-                << object.left << " " << object.top << " " << object.width << " "<< object.height << " "
-                << std::endl;
-            }
-
+        
             object.left=CLIP(object.left, 0, networkInfo.width - 1);
             object.top=CLIP(object.top, 0, networkInfo.height - 1);
             object.width=CLIP(object.width, 0, networkInfo.width - 1);
